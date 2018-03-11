@@ -1,0 +1,14 @@
+[2018-03-08 - 19:58:29] [MoonBot] [38;5;203mUnknown command: Dexit[0m
+[2018-03-08 - 19:58:29] [MoonBot] All available commands:
+[2018-03-08 - 19:58:29] [MoonBot]   help             -    shows the help page
+[2018-03-08 - 19:58:29] [MoonBot]   info             -    information's about the bot
+[2018-03-08 - 19:58:29] [MoonBot]   reload           -    reload all configurations
+[2018-03-08 - 19:58:29] [MoonBot]   openSupport      -    open the 'Support' channel
+[2018-03-08 - 19:58:29] [MoonBot]   closeSupport     -    close the 'Support' channel
+[2018-03-08 - 19:58:29] [MoonBot]   exit             -    terminate this process
+[2018-03-08 - 19:58:29] [MoonBot]   say              -    Use say <Guild> <Channel> <Message>
+[2018-03-08 - 19:59:04] [MoonBot] User Lasergott executed the command .help
+[2018-03-08 - 19:59:05] [MoonBot] User Lasergott executed the command .help
+[2018-03-08 - 19:59:06] [MoonBot] User Lasergott executed the command .help
+[2018-03-08 - 19:59:07] [MoonBot] User Lasergott executed the command .help
+[2018-03-08 - 19:59:08] [MoonBot] User Lasergott executed the command .help

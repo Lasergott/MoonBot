@@ -1,0 +1,53 @@
+#your discord bot token
+token: "NDE5MTQ0MDUzMzIyNDE2MTI5.DX1Rig.SXS6sb4XwTbfJPEorWuUTr6pbUw"
+generalChannel: "bot-info"
+
+#the displayed game
+game: "mit TimoCloud"
+
+#The role on Discord Server join
+AutoRole-enabled: true
+autoRole: "User"
+
+#Commands
+commandPrefix: "."
+commandNotRegistered: ":warning: This commands is not registered!"
+
+#NoPermissions
+NoPermissions: ":warning: Sorry, {name}, but you do not have the right permissions to do that"
+
+
+#The infos for the open/close support command
+openSupport-Message: ":warning: Support Channel was **``opened``** by {member}! :warning:"
+openSupport-Channel: "bot-info"
+closeSupport-Message:  ":warning: Support Channel was **``closed``** by {member}! :warning:"
+closeSupport-Channel: "bot-info"
+
+#Startup infos
+startUp-Message: ":smile: The Bot is now online! :smile:"
+startUp-Channel: "bot-info"
+
+#exit infos
+exit-Message: "The Bot is crashed... :("
+exit-Channel: "bot-info"
+
+#userChangeName Infos
+userChangeName-Message: "User {name} changed his/her displayname to {newnick}"
+
+#Support Messages
+memberIsWaiting: "Member {member} is waiting in the support-channel ({channel})!"
+teamInformed: "{staff} team members were informed!"
+
+#messsage for a new member
+newMemberMessage: "Hey, @{member} and welcome on the Discord Support server! :wave: \n\nYou automatically got assigned the server role User by me. \nNow, have a nice day! :wink:"
+newMemberAnnounce-Message: "{member} is new on the Discord Server!"
+newMemberAnnounce-Channel: "members-info"
+
+#reload
+reload-Message: "The bot was successful reloaded by {member}"
+reload-Channel: "bot-info"
+
+#memberLeave
+memberLeave-Channel: "members-info"
+memberLeave-Message: ":cold_sweat:  The player {member} has left the Discord server! :cold_sweat: "
+memberLeave-Private: "Hey, \n have a great time without us! :wink:"

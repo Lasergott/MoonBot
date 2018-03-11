@@ -1,0 +1,31 @@
+game: mit TimoCloud
+autoRole: User
+AutoRole-enabled: true
+startUp-Message: ':smile: The Bot is now online! :smile:'
+NoPermissions: ':warning: Sorry, {name}, but you do not have the right permissions
+  to do that'
+newMemberAnnounce-Channel: members-info
+openSupport-Channel: bot-info
+commandPrefix: .
+closeSupport-Channel: bot-info
+reload-Channel: bot-info
+memberLeave-Message: ':cold_sweat:  The player {member} has left the Discord server!
+  :cold_sweat: '
+memberIsWaiting: Member {member} is waiting in the support-channel ({channel})!
+exit-Message: The Bot is crashed... :(
+userChangeName-Message: User {name} changed his/her displayname to {newnick}
+closeSupport-Message: ':warning: Support Channel was **``closed``** by {member}! :warning:'
+newMemberAnnounce-Message: '{member} is new on the Discord Server!'
+reload-Message: The bot was successful reloaded by {member}
+commandNotRegistered: ':warning: This commands is not registered!'
+startUp-Channel: bot-info
+token: NDE5MTQ0MDUzMzIyNDE2MTI5.DX1Rig.SXS6sb4XwTbfJPEorWuUTr6pbUw
+exit-Channel: bot-info
+newMemberMessage: "Hey, @{member} and welcome on the Discord Support server! :wave:\
+  \ \n\nYou automatically got assigned the server role User by me. \nNow, have a nice\
+  \ day! :wink:"
+openSupport-Message: ':warning: Support Channel was **``opened``** by {member}! :warning:'
+teamInformed: '{staff} team members were informed!'
+memberLeave-Private: "Hey, \n have a great time without us! :wink:"
+memberLeave-Channel: members-info
+generalChannel: bot-info
