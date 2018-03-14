@@ -1,9 +1,9 @@
 package moon.sound.MoonBot.manager;
 
 import moon.sound.MoonBot.MoonBot;
-import moon.sound.MoonBot.commands.admintration.*;
-import moon.sound.MoonBot.commands.user.HelpCMD;
-import moon.sound.MoonBot.commands.user.InfoCMD;
+import moon.sound.MoonBot.commands.administration.*;
+import moon.sound.MoonBot.commands.user.HelpCommand;
+import moon.sound.MoonBot.commands.user.InfoCommand;
 import moon.sound.MoonBot.listeners.*;
 import moon.sound.MoonBot.utils.CommandHandler;
 import net.dv8tion.jda.core.AccountType;
@@ -28,14 +28,14 @@ public class JdaManager {
     }
 
     private static void addCommands() {
-        CommandHandler.commands.put("opensupport", new OpenSupportCMD());
-        CommandHandler.commands.put("closesupport", new CloseSupportCMD());
-        CommandHandler.commands.put("stop", new StopCMD());
-        CommandHandler.commands.put("help", new HelpCMD());
-        CommandHandler.commands.put("say", new SayCMD());
-        CommandHandler.commands.put("info", new InfoCMD());
-        CommandHandler.commands.put("reload", new ReloadCMD());
-        CommandHandler.commands.put("music", new MusicCMD());
+        CommandHandler.commands.put("opensupport", new OpenSupportCommand());
+        CommandHandler.commands.put("closesupport", new CloseSupportCommand());
+        CommandHandler.commands.put("stop", new StopCommand());
+        CommandHandler.commands.put("help", new HelpCommand());
+        CommandHandler.commands.put("say", new SayCommand());
+        CommandHandler.commands.put("info", new InfoCommand());
+        CommandHandler.commands.put("reload", new ReloadCommand());
+        CommandHandler.commands.put("music", new MusicCommand());
     }
 
     private static void addListener() {
