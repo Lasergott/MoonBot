@@ -18,95 +18,20 @@ public class SupportListener extends ListenerAdapter {
     @Override
     public void onGuildVoiceJoin(GuildVoiceJoinEvent event) {
         Member member = event.getMember();
-        if (event.getChannelJoined().getName().equals("Support-Waitroom")) {
-            PrivateChannel privateChannel;
-            int staffs = 0;
-            info("Member" + member.getEffectiveName() + " is waiting in the support-channel (" + event.getChannelJoined().getName() + ")!");
-            for (Member staff : event.getGuild().getMembers()) {
-                try {
-                    privateChannel = staff.getUser().openPrivateChannel().complete();
-                    if (staff.getRoles().contains(event.getGuild().getRolesByName("Supporter", false).get(0))) {
-                        staffs++;
-                        privateChannel.sendMessage(new EmbedBuilder()
-                                .setDescription(MoonBot.getInstance().getData().getMessage("memberIsWaiting").replace("{member}", member.getEffectiveName())
-                                        .replace("{channel}", event.getChannelJoined().getName()))
-                                .setColor(Color.YELLOW)
-                                .build())
-                                .queue();
-                    } else if (staff.getRoles().contains(event.getGuild().getRolesByName("Leitung", false).get(0))) {
-                        staffs++;
-                        privateChannel.sendMessage(new EmbedBuilder()
-                                .setDescription(MoonBot.getInstance().getData().getMessage("memberIsWaiting").replace("{member}", member.getEffectiveName())
-                                        .replace("{channel}", event.getChannelJoined().getName()))
-                                .setColor(Color.YELLOW)
-                                .build())
-                                .queue();
-                    } else if (staff.getRoles().contains(event.getGuild().getRolesByName("Administrator", false).get(0))) {
-                        staffs++;
-                        privateChannel.sendMessage(new EmbedBuilder()
-                                .setDescription(MoonBot.getInstance().getData().getMessage("memberIsWaiting").replace("{member}", member.getEffectiveName())
-                                        .replace("{channel}", event.getChannelJoined().getName()))
-                                .setColor(Color.YELLOW)
-                                .build())
-                                .queue();
-                    } else if (staff.getRoles().contains(event.getGuild().getRolesByName("Moderator", false).get(0))) {
-                        staffs++;
-                        privateChannel.sendMessage(new EmbedBuilder()
-                                .setDescription(MoonBot.getInstance().getData().getMessage("memberIsWaiting").replace("{member}", member.getEffectiveName())
-                                        .replace("{channel}", event.getChannelJoined().getName()))
-                                .setColor(Color.YELLOW)
-                                .build())
-                                .queue();
-                    }
-                } catch (Exception ignored) {
-                }
-            }
-            try {
-                privateChannel = member.getUser().openPrivateChannel().complete();
-                privateChannel.sendMessage(new EmbedBuilder()
-                        .setDescription(MoonBot.getInstance().getData().getMessage("teamInformed").replace("{staff}", staffs + ""))
-                        .setColor(Color.GREEN)
-                        .build())
-                        .queue();
-            } catch (Exception ignored) {
-            }
-        }
-    }
-
-    @Override
-    public void onGuildVoiceMove(GuildVoiceMoveEvent event) {
-        Member member = event.getMember();
-        if (event.getChannelJoined().getName().equals("Support-Waitroom")) {
-            PrivateChannel privateChannel;
+        if (event.getChannelJoined().getName().equals("Support-Waitroom \uD83D\uDD5B")) {
             int staffs = 0;
             info("Member " + member.getEffectiveName() + " is waiting in the support-channel (" + event.getChannelJoined().getName() + ")!");
             for (Member staff : event.getGuild().getMembers()) {
                 try {
-                    privateChannel = staff.getUser().openPrivateChannel().complete();
-                    if (staff.getRoles().contains(event.getGuild().getRolesByName("Support", false).get(0))) {
+                    if (staff.getRoles().contains(event.getGuild().getRolesByName("Supporter", false).get(0))) {
                         staffs++;
-                        MessageManager.sendDiscordPrivateMessage(MoonBot.getInstance().getData().getMessage("memberIsWaiting")
-                                        .replace("{member}", member.getEffectiveName())
-                                        .replace("{channel}", event.getChannelJoined().getName()),
-                                        member.getUser(), Color.YELLOW);
-                    } else if (staff.getRoles().contains(event.getGuild().getRolesByName("Leitung", false).get(0))) {
+                        sendWaiting(staff, event);
+                    } else if (staff.getRoles().contains(event.getGuild().getRolesByName("Leiter", false).get(0))) {
                         staffs++;
-                        MessageManager.sendDiscordPrivateMessage(MoonBot.getInstance().getData().getMessage("memberIsWaiting")
-                                        .replace("{member}", member.getEffectiveName())
-                                        .replace("{channel}", event.getChannelJoined().getName()),
-                                         member.getUser(), Color.YELLOW);
+                        sendWaiting(staff, event);
                     } else if (staff.getRoles().contains(event.getGuild().getRolesByName("Administrator", false).get(0))) {
                         staffs++;
-                        MessageManager.sendDiscordPrivateMessage(MoonBot.getInstance().getData().getMessage("memberIsWaiting")
-                                        .replace("{member}", member.getEffectiveName())
-                                        .replace("{channel}", event.getChannelJoined().getName()),
-                                         member.getUser(), Color.YELLOW);
-                    } else if (staff.getRoles().contains(event.getGuild().getRolesByName("Moderator", false).get(0))) {
-                        staffs++;
-                        MessageManager.sendDiscordPrivateMessage(MoonBot.getInstance().getData().getMessage("memberIsWaiting")
-                                        .replace("{member}", member.getEffectiveName())
-                                        .replace("{channel}", event.getChannelJoined().getName()),
-                                        member.getUser(), Color.YELLOW);
+                        sendWaiting(staff, event);
                     }
                 } catch (Exception ignored) {
                 }
@@ -120,4 +45,46 @@ public class SupportListener extends ListenerAdapter {
             }
         }
     }
+
+    @Override
+    public void onGuildVoiceMove(GuildVoiceMoveEvent event) {
+        Member member = event.getMember();
+        if (event.getChannelJoined().getName().equals("Support-Waitroom \uD83D\uDD5B")) {
+            int staffs = 0;
+            info("Member " + member.getEffectiveName() + " is waiting in the support-channel (" + event.getChannelJoined().getName() + ")!");
+            for (Member staff : event.getGuild().getMembers()) {
+                try {
+                    if (staff.getRoles().contains(event.getGuild().getRolesByName("Supporter", false).get(0))) {
+                        staffs++;
+                        sendWaiting(staff, event);
+                    } else if (staff.getRoles().contains(event.getGuild().getRolesByName("Leiter", false).get(0))) {
+                        staffs++;
+                        sendWaiting(staff, event);
+                    } else if (staff.getRoles().contains(event.getGuild().getRolesByName("Administrator", false).get(0))) {
+                        staffs++;
+                        sendWaiting(staff, event);
+                    }
+                } catch (Exception ignored) {
+                }
+            }
+            try {
+                MessageManager.sendDiscordPrivateMessage(
+                        MoonBot.getInstance().getData().getMessage("teamInformed").replace("{staff}", staffs + ""),
+                        member.getUser(),
+                        Color.GREEN);
+            } catch (Exception ignored) {
+            }
+        }
+    }
+
+    private void sendWaiting(Member member, GuildVoiceMoveEvent event) {
+        MessageManager.sendDiscordPrivateMessage(
+                MoonBot.getInstance().getData().getMessage("memberIsWaiting").replace("{member}", event.getMember().getEffectiveName()).replace("{channel}", event.getChannelJoined().getName()), member.getUser(), Color.GREEN);
+    }
+
+    private void sendWaiting(Member member, GuildVoiceJoinEvent event) {
+        MessageManager.sendDiscordPrivateMessage(
+                MoonBot.getInstance().getData().getMessage("memberIsWaiting").replace("{member}", event.getMember().getEffectiveName()).replace("{channel}", event.getChannelJoined().getName()), member.getUser(), Color.GREEN);
+    }
 }
+
